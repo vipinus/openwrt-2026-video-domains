@@ -15,3 +15,4 @@
 # Tencent Video — streaming CDNs (verified 2026-04-10)
 ltsxmty.gtimg.com            # China Telecom Anhui (223.244.0.0/13)
 apdcdn.tc.qq.com             # Tencent Video APD CDN tree
+v.smtcdns.com
