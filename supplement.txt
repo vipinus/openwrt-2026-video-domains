@@ -1,0 +1,17 @@
+# openwrt-2026-video-domains / supplement.txt
+#
+# Hand-curated domains NOT covered by v2fly community lists,
+# primarily Tencent Video streaming CDN subdomains.
+#
+# Format: one domain per line; # for comments; no wildcards
+# (dnsmasq nftset matches parent-domain and all subdomains).
+#
+# Every domain here MUST be a pure CDN segment endpoint —
+# NO API, login, or manifest domains. Verify with dig + whois
+# before submitting a PR.
+#
+# See blacklist.txt for domains that are explicitly forbidden.
+
+# Tencent Video — streaming CDNs (verified 2026-04-10)
+ltsxmty.gtimg.com            # China Telecom Anhui (223.244.0.0/13)
+apdcdn.tc.qq.com             # Tencent Video APD CDN tree

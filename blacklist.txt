@@ -1,0 +1,41 @@
+# openwrt-2026-video-domains / blacklist.txt
+#
+# API / login / manifest domains that MUST NEVER enter the direct set.
+# Merged with the in-script blacklist in fetch-video-domains.py.
+#
+# If a community list (v2fly) ships one of these, it gets filtered out.
+
+# Netflix control plane
+netflix.com
+netflixinvestor.com
+netflixtechblog.com
+fast.com
+netflixdnstest0.com
+netflixdnstest1.com
+netflixdnstest2.com
+netflixdnstest3.com
+netflixdnstest4.com
+netflixdnstest5.com
+
+# Bilibili control plane
+bilibili.com
+biliapi.net
+api.bilibili.com
+passport.bilibili.com
+
+# iQiyi control plane
+iqiyi.com
+passport.iqiyi.com
+
+# Youku control plane
+youku.com
+passport.youku.com
+tudou.com
+
+# Tencent Video control plane
+# NOTE: do NOT list bare `qq.com` — it would subdomain-match
+# `apdcdn.tc.qq.com` (legit Tencent Video CDN tree). Only list the
+# specific control-plane hostnames below.
+v.qq.com
+video.qq.com
+vv.video.qq.com
