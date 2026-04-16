@@ -22,7 +22,7 @@ nflxso.net
 nflxvideo.net
 
 # --- bilibili ---
-#api.bilibili.com
+api.bilibili.com
 
 # --- iqiyi (11) ---
 71.am
