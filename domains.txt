@@ -29,8 +29,7 @@ nflxvideo.net
 71edge.com
 iq.com
 iqiyipic.com
-msg.video.qiyi.com
-msg2.video.qiyi.com
+video.qiyi.com
 pps.tv
 ppsimg.com
 qiyi.com
