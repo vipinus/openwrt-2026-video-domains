@@ -23,6 +23,9 @@ nflxvideo.net
 
 # --- bilibili ---
 api.bilibili.com
+grpc.biliapi.net
+api.live.bilibili.com
+bangumi.bilibili.com
 
 # --- iqiyi (11) ---
 71.am
