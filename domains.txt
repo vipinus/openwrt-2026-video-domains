@@ -26,6 +26,8 @@ api.bilibili.com
 grpc.biliapi.net
 api.live.bilibili.com
 bangumi.bilibili.com
+akamai.net
+bilicdn1.com
 
 # --- iqiyi (11) ---
 71.am
