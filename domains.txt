@@ -21,21 +21,10 @@ nflxsearch.net
 nflxso.net
 nflxvideo.net
 
-# --- bilibili (14) ---
-bilicdn1.com
-bilicdn2.com
-bilicdn3.com
-bilicdn4.com
-bilicdn5.com
-biliimg.com
-bilivideo.cn
+# --- bilibili ---
 bilivideo.com
-bilivideo.net
-hdslb.com
-hdslb.org
-maoercdn.com
-mincdn.com
-upos-hz-mirrorakam.akamaized.net
+szbdyd.com
+bilivideo.cn
 
 # --- iqiyi (11) ---
 71.am
