@@ -2,6 +2,9 @@
 # Updated: 2026-04-16 (Tencent expanded 2→10)
 # Format: one domain per line; # for comments; dnsmasq matches subdomains
 
+# --- youtube ---
+googlevideo.com
+
 # --- netflix (14) ---
 netflix.ca
 netflix.com.edgesuite.net
