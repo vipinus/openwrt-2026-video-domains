@@ -1,0 +1,293 @@
+# openwrt-2026 — Chinese video sites FULL domain list (site + ancillary)
+# Updated: 2026-04-18
+#
+# Purpose: exhaustive enumeration of every domain a typical CN video
+# site needs to function — main host + API + CDN + image + analytics +
+# login + player + ads-lite — so the list works even when dnsmasq's
+# subdomain matching is defeated by third-party infra (e.g. iqiyi
+# serving video segments from *.alicdn.com, bilibili from *.hdslb.com).
+#
+# Paired with domains.txt: domains.txt is the MINIMAL set (one anchor
+# per site, relying on dnsmasq's *.domain matching); this file is the
+# MAXIMAL set (every resolver-visible domain observed by a real player
+# session). Use whichever fits the router's nftset strategy.
+#
+# Format: one domain per line; # for comments; dnsmasq matches subdomains.
+
+# ===== iqiyi 爱奇艺 =====
+iqiyi.com
+iqiyipic.com
+qiyi.com
+qiyipic.com
+qy.net
+71.am
+71edge.com
+iq.com
+iqiyiwic.com
+ppsimg.com
+pps.tv
+video.qiyi.com
+player.pplive.com
+cache.video.qiyi.com
+static-s.iqiyi.com
+msg.71.am
+msg.qy.net
+paopao.iqiyi.com
+passport.iqiyi.com
+pcw-api.iqiyi.com
+iface.iqiyi.com
+iface2.iqiyi.com
+data.video.iqiyi.com
+stat.iqiyi.com
+
+# ===== bilibili 哔哩哔哩 =====
+bilibili.com
+biliapi.com
+biliapi.net
+bilivideo.com
+bilivideo.cn
+bilicdn1.com
+bilicdn2.com
+biliimg.com
+biligame.com
+bilibili.tv
+bstarstatic.com
+hdslb.com
+upos-hz-mirrorakam.akamaized.net
+mcdn.bilivideo.cn
+acg.tv
+b23.tv
+
+# ===== youku 优酷 =====
+youku.com
+ykimg.com
+soku.com
+atm.youku.com
+cibntv.net
+mmstat.com
+kumiao.com
+sokl.com
+wasu.tv
+wwsimg.com
+wws.tv
+klmiao.com
+e.stat.ykimg.com
+w-log.ykimg.com
+p-log.ykimg.com
+
+# ===== tencent video 腾讯视频 =====
+qq.com
+v.qq.com
+gtimg.cn
+gtimg.com
+qpic.cn
+smtcdns.com
+tc.qq.com
+tencent-cloud.com
+qqvideo.tc.qq.com
+qqvideo.gtimg.com
+vfiles.gtimg.cn
+vpic.video.qq.com
+apdcdn.tc.qq.com
+ltsxmty.gtimg.com
+awdcdn.tc.qq.com
+yoo.gtimg.com
+pgdt.gtimg.cn
+puui.qpic.cn
+tvs.qq.com
+tenvideo-api.qq.com
+mqqvideo.qq.com
+wlli.qwic.cn
+vwic.video.qq.com
+
+# ===== mango tv 芒果TV =====
+mgtv.com
+hitv.com
+imgocnbcdn.com
+mmgp.mgtv.com
+image11.m1905.cn
+
+# ===== sohu tv 搜狐视频 =====
+sohu.com
+sohucs.com
+tv.sohu.com
+hd.video.sohu.com
+m.tv.sohu.com
+pb.hd.sohu.com
+my.tv.sohu.com
+s.56.com
+s1.56img.com
+56img.com
+
+# ===== pptv / pplive =====
+pptv.com
+pplive.com
+pplive.cn
+pplivestatic.com
+pplive.net
+pptv365.com
+ppaccel.com
+
+# ===== letv 乐视 =====
+le.com
+letv.com
+letvimg.com
+letvcloud.com
+lecloud.com
+letvstore.com
+ltvcdn.com
+leshitv.com
+
+# ===== douyin 抖音 =====
+douyin.com
+douyincdn.com
+douyinpic.com
+douyinstatic.com
+douyinvod.com
+tiktokcdn.com
+tiktokcdn-us.com
+byteoversea.com
+bytecdn.cn
+bytegoofy.com
+bytednsdoc.com
+bytefcdn-oversea.com
+ipstatp.com
+pstatp.com
+snssdk.com
+amemv.com
+volces.com
+volccdn.com
+
+# ===== kuaishou 快手 =====
+kuaishou.com
+kuaishouzt.com
+gifshow.com
+ksyun.com
+yximgs.com
+ksapisrv.com
+ksosmobile.com
+getkwai.com
+kwai.net
+kwai.com
+kwaicdn.com
+
+# ===== xiaohongshu 小红书 =====
+xiaohongshu.com
+xhscdn.com
+xhslink.com
+rednote.com
+
+# ===== weibo video 微博 =====
+weibo.com
+weibo.cn
+weibocdn.com
+sinaimg.cn
+miaopai.com
+c.weibo.com
+video.weibo.com
+
+# ===== huya 虎牙 =====
+huya.com
+huyaimg.com
+msstatic.com
+msstaticsq.com
+hyscdn.com
+
+# ===== douyu 斗鱼 =====
+douyu.com
+douyucdn.cn
+douyucdn3.cn
+dz11.com
+douyuex.com
+
+# ===== migu 咪咕视频 =====
+migu.cn
+migufun.com
+miguvideo.com
+cmvideo.cn
+miguaudio.com
+
+# ===== cctv / state broadcaster =====
+cctv.com
+cctvpic.com
+cntv.cn
+cntvwb.cn
+facaicaijing.com
+
+# ===== xigua / toutiao 西瓜视频 =====
+ixigua.com
+toutiao.com
+toutiaocdn.com
+toutiaoimg.com
+
+# ===== bai shi tong / m1905 电影网 =====
+m1905.cn
+m1905.com
+
+# ===== others (documentary / live / niche) =====
+yy.com
+duoshuo.com
+yyimgs.com
+yyscdn.com
+yytcdn.com
+bilipay.cn
+acgvideo.com
+bahamut.com.tw
+acgrip.com
+
+# ===== 3rd-party CDN commonly used by CN video =====
+# (shared infra — may be referenced from multiple sites above)
+alicdn.com
+alikunlun.com
+akamaized.net
+akamaihd.net
+akamaized-staging.net
+wscdns.com
+ccgslb.com
+cdn20.com
+cdnhwc8.com
+cdn00.net
+chinanetcenter.com
+wangsu.com
+wangsucloud.com
+myqcloud.com
+qcloud.com
+cos.ap-beijing.myqcloud.com
+cos.ap-shanghai.myqcloud.com
+cos.ap-guangzhou.myqcloud.com
+upyun.com
+upaiyun.com
+b0.upaiyun.com
+qnssl.com
+qbox.me
+qiniucdn.com
+qnsdk.com
+bdstatic.com
+bcelive.com
+bdimg.com
+baidupcs.com
+baidubcr.com
+dnion.com
+shedzj.com
+
+# ===== analytics / auth / third-party trackers used by CN video =====
+# (included because players usually fail or stall without these)
+umeng.com
+umengcloud.com
+umengvv.com
+aliyuncs.com
+oss-cn-beijing.aliyuncs.com
+oss-cn-shanghai.aliyuncs.com
+oss-cn-hangzhou.aliyuncs.com
+oss-cn-shenzhen.aliyuncs.com
+aliyun-inc.com
+cnzz.com
+51.la
+baidustatic.com
+tanx.com
+mmstat.com
+alibaba.com
+alipay.com
+taobao.com
+tmall.com
+dianping.com
