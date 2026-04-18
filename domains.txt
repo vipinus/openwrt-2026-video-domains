@@ -56,7 +56,7 @@ apdcdn.tc.qq.com
 ltsxmty.gtimg.com
 qqvideo.tc.qq.com
 qqvideo.gtimg.com
-v.smtcdns.com
+#v.smtcdns.com
 vpic.video.qq.com
 vfiles.gtimg.cn
 puui.qpic.cn
