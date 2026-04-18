@@ -29,7 +29,7 @@ bangumi.bilibili.com
 akamai.net
 bilicdn1.com
 
-# --- iqiyi (12) ---
+# --- iqiyi (11) ---
 71.am
 71edge.com
 iq.com
