@@ -1,0 +1,21 @@
+# CN-view DNS servers for overseas routers.
+#
+# Purpose: when the router is overseas and connected to a CN backend, these
+# resolvers answer from a mainland China vantage so video CDNs (bilibili,
+# iqiyi, QQ video, etc.) pass the copyright/region check.
+#
+# Format: one entry per line, "IP#PORT". Lines starting with # are comments.
+# Blank lines allowed.
+#
+# Router consumption (vipin-dns-refresh on boot):
+#   - dnsmasq upstreams rewritten to this list with all-servers mode
+#     (parallel race — first reply wins, survives per-path failures).
+#   - A /32 host route via WAN gateway is installed for each IP so queries
+#     skip tun0 (would otherwise sandwich through HK relay — 1.8s cost).
+#
+# Build-time (.github/workflows/build.yml): baked into /etc/vipin/dns.txt so
+# a fresh flash already has the list if first-boot DNS can't fetch upstream.
+
+123.57.190.43#3333
+59.36.165.181#3333
+106.14.77.162#3333
