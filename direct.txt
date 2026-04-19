@@ -76,3 +76,19 @@ tvs.qq.com
 mqqvideo.qq.com
 wlli.qwic.cn
 
+# --- iqiyi media/CDN extra (appended 2026-04-19) ---
+# From cn-video-full.txt iqiyi section; excludes auth/API/control-plane:
+#   passport.iqiyi.com, pcw-api.iqiyi.com, iface*.iqiyi.com,
+#   msg.71.am, msg.qy.net, stat.iqiyi.com, paopao.iqiyi.com.
+# GITV/银河奇异果 caveat: the only memory-documented gitv.tv entry is
+# `msg.video.dns.ptqy.gitv.tv` which is an auth dispatcher (lives in
+# force-vpn.txt). Adding bare `ptqy.gitv.tv` or `gitv.tv` would
+# subdomain-match that auth entry — do NOT add roots. Specific OTT
+# media subdomains under ptqy.gitv.tv need device packet-capture to
+# identify safely; append verified ones here.
+iqiyiwic.com
+player.pplive.com
+cache.video.qiyi.com
+static-s.iqiyi.com
+data.video.iqiyi.com
+
