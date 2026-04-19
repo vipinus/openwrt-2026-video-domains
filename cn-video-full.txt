@@ -7,7 +7,7 @@
 # subdomain matching is defeated by third-party infra (e.g. iqiyi
 # serving video segments from *.alicdn.com, bilibili from *.hdslb.com).
 #
-# Paired with domains.txt: domains.txt is the MINIMAL set (one anchor
+# Paired with direct.txt: direct.txt is the MINIMAL set (one anchor
 # per site, relying on dnsmasq's *.domain matching); this file is the
 # MAXIMAL set (every resolver-visible domain observed by a real player
 # session). Use whichever fits the router's nftset strategy.

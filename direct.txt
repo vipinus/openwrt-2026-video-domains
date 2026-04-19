@@ -1,5 +1,5 @@
-# openwrt-2026 video_direct — curated domain list
-# Updated: 2026-04-16 (Tencent expanded 2→10)
+# openwrt-2026 video_direct — curated domain list (direct.txt)
+# Renamed from domains.txt 2026-04-19 for clarity.
 # Format: one domain per line; # for comments; dnsmasq matches subdomains
 
 # --- youtube ---
