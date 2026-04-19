@@ -62,3 +62,17 @@ vfiles.gtimg.cn
 puui.qpic.cn
 yoo.gtimg.com
 pgdt.gtimg.cn
+
+# --- tencent media/CDN extra (appended 2026-04-19) ---
+# Extracted from cn-video-full.txt Tencent section; excludes auth
+# (tencent-cloud.*, otysdktj.tvfuwu.com, ottpauth.yst.aisee.tv,
+# ias.tencent-cloud.net, msg.video.dns.ptqy.gitv.tv — all handled by
+# force-vpn.txt) and API/control-plane (*-api.qq.com, v.qq.com,
+# video.qq.com, vv.video.qq.com). Root domains (qq.com, gtimg.*,
+# qpic.cn, tc.qq.com, smtcdns.com) withheld to avoid sibling
+# collateral damage (feedback_narrow_patterns).
+awdcdn.tc.qq.com
+tvs.qq.com
+mqqvideo.qq.com
+wlli.qwic.cn
+vwic.video.qq.com
