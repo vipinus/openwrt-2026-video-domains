@@ -2,11 +2,11 @@
 
 Domain list consumed by the `video_direct` feature in
 [openwrt-2026](https://github.com/vipinus/openwrt-2026).
-The firmware fetches `domains.txt` via weekly cron.
+The firmware fetches `direct.txt` via weekly cron.
 
 ## File
 
-- `domains.txt` — one domain per line; `#` for comments.
+- `direct.txt` — one domain per line; `#` for comments.
   Matches parent-domain and all subdomains via dnsmasq-full nftset.
 
 ## Contributing
