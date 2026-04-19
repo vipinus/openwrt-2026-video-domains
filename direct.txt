@@ -71,8 +71,4 @@ pgdt.gtimg.cn
 # video.qq.com, vv.video.qq.com). Root domains (qq.com, gtimg.*,
 # qpic.cn, tc.qq.com, smtcdns.com) withheld to avoid sibling
 # collateral damage (feedback_narrow_patterns).
-awdcdn.tc.qq.com
-tvs.qq.com
-mqqvideo.qq.com
-wlli.qwic.cn
-vwic.video.qq.com
+
