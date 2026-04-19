@@ -1,6 +1,6 @@
 name: Monthly force-cn CIDR refresh
 
-# Regenerate force-cn-cidrs.txt (Tencent overseas BGP + Fastly 151.101/16)
+# Regenerate force-cn-cidrs.txt (Tencent overseas BGP)
 # on the last day of each month. OpenWrt routers pull this file on the 1st.
 
 on:
@@ -66,11 +66,7 @@ jobs:
               o.write("#\n")
               for n in sorted(filt, key=lambda x:(int(x.network_address), x.prefixlen)):
                   o.write(f"{n}\n")
-              o.write("\n# ===== Third-party CDN used by Tencent Video overseas =====\n")
-              o.write("# Fastly anycast: Tencent Video OTT region endpoints fall back here.\n")
-              o.write("# Trade-off: other Fastly-hosted sites also route through CN tunnel.\n")
-              o.write("151.101.0.0/16\n")
-          print(f"wrote {len(filt)} Tencent + 1 Fastly")
+          print(f"wrote {len(filt)} Tencent prefixes")
           PY
 
       - name: Commit if changed

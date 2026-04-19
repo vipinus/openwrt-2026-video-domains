@@ -51,8 +51,3 @@
 210.180.74.0/23
 211.152.128.0/19
 211.159.96.0/19
-
-# ===== Third-party CDN used by Tencent Video overseas =====
-# Fastly anycast: Tencent Video OTT region endpoints fall back here.
-# Trade-off: other Fastly-hosted sites also route through CN tunnel.
-151.101.0.0/16
