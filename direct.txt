@@ -3,7 +3,7 @@
 # Format: one domain per line; # for comments; dnsmasq matches subdomains
 
 # --- youtube ---
-googlevideo.com
+# googlevideo.com — GFW-blocked for direct connection, route via VPN (2026-04-24)
 
 # --- netflix (14) ---
 netflix.ca
