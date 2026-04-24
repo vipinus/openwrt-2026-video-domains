@@ -1,0 +1,93 @@
+# openwrt-2026 video_direct — curated domain list (direct.txt)
+# Renamed from domains.txt 2026-04-19 for clarity.
+# Format: one domain per line; # for comments; dnsmasq matches subdomains
+
+# --- youtube ---
+googlevideo.com
+
+# --- netflix (14) ---
+netflix.ca
+netflix.com.edgesuite.net
+netflix.net
+netflixdnstest10.com
+netflixdnstest6.com
+netflixdnstest7.com
+netflixdnstest8.com
+netflixdnstest9.com
+nflxext.com
+nflximg.com
+nflximg.net
+nflxsearch.net
+nflxso.net
+nflxvideo.net
+
+# --- bilibili ---
+api.bilibili.com
+grpc.biliapi.net
+api.live.bilibili.com
+bangumi.bilibili.com
+akamai.net
+bilicdn1.com
+
+# --- iqiyi (11) ---
+71.am
+71edge.com
+iq.com
+iqiyi.com
+iqiyipic.com
+video.qiyi.com
+pps.tv
+ppsimg.com
+qiyi.com
+qiyipic.com
+qy.net
+
+# --- youku (7) ---
+cibntv.net
+e.stat.ykimg.com
+kumiao.com
+mmstat.com
+p-log.ykimg.com
+soku.com
+ykimg.com
+
+# --- tencent (10) ---
+apdcdn.tc.qq.com
+ltsxmty.gtimg.com
+qqvideo.tc.qq.com
+qqvideo.gtimg.com
+#v.smtcdns.com
+vpic.video.qq.com
+vfiles.gtimg.cn
+puui.qpic.cn
+yoo.gtimg.com
+pgdt.gtimg.cn
+
+# --- tencent media/CDN extra (appended 2026-04-19) ---
+# Extracted from cn-video-full.txt Tencent section; excludes auth
+# (tencent-cloud.*, otysdktj.tvfuwu.com, ottpauth.yst.aisee.tv,
+# ias.tencent-cloud.net, msg.video.dns.ptqy.gitv.tv — all handled by
+# force-vpn.txt) and API/control-plane (*-api.qq.com, v.qq.com,
+# video.qq.com, vv.video.qq.com). Root domains (qq.com, gtimg.*,
+# qpic.cn, tc.qq.com, smtcdns.com) withheld to avoid sibling
+# collateral damage (feedback_narrow_patterns).
+awdcdn.tc.qq.com
+tvs.qq.com
+mqqvideo.qq.com
+wlli.qwic.cn
+
+# --- iqiyi media/CDN extra (appended 2026-04-19) ---
+# From cn-video-full.txt iqiyi section; excludes auth/API/control-plane:
+#   passport.iqiyi.com, pcw-api.iqiyi.com, iface*.iqiyi.com,
+#   msg.71.am, msg.qy.net, stat.iqiyi.com, paopao.iqiyi.com.
+# GITV/银河奇异果 caveat: the only memory-documented gitv.tv entry is
+# `msg.video.dns.ptqy.gitv.tv` which is an auth dispatcher (lives in
+# force-vpn.txt). Adding bare `ptqy.gitv.tv` or `gitv.tv` would
+# subdomain-match that auth entry — do NOT add roots. Specific OTT
+# media subdomains under ptqy.gitv.tv need device packet-capture to
+# identify safely; append verified ones here.
+iqiyiwic.com
+player.pplive.com
+cache.video.qiyi.com
+static-s.iqiyi.com
+data.video.iqiyi.com
