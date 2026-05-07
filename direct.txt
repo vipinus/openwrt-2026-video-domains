@@ -6,20 +6,20 @@
 # googlevideo.com — GFW-blocked for direct connection, route via VPN (2026-04-24)
 
 # --- netflix (14) ---
-netflix.ca
-netflix.com.edgesuite.net
-netflix.net
-netflixdnstest10.com
-netflixdnstest6.com
-netflixdnstest7.com
-netflixdnstest8.com
-netflixdnstest9.com
-nflxext.com
-nflximg.com
-nflximg.net
-nflxsearch.net
-nflxso.net
-nflxvideo.net
+#netflix.ca
+#netflix.com.edgesuite.net
+#netflix.net
+#netflixdnstest10.com
+#netflixdnstest6.com
+#netflixdnstest7.com
+#netflixdnstest8.com
+#netflixdnstest9.com
+#nflxext.com
+#nflximg.com
+#nflximg.net
+#nflxsearch.net
+#nflxso.net
+#nflxvideo.net
 
 # --- bilibili ---
 api.bilibili.com
