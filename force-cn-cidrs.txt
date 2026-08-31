@@ -1,6 +1,6 @@
 # Tencent overseas BGP prefixes — AS132203 (Tencent Cloud) + AS139341 (ACE)
 # Auto-generated monthly by .github/workflows/monthly-force-cn-refresh.yml
-# Generated 2026-07-31 UTC. 48 prefixes after aggregation.
+# Generated 2026-08-31 UTC. 52 prefixes after aggregation.
 #
 1.12.0.0/20
 1.12.34.0/23
@@ -9,8 +9,10 @@
 14.207.234.0/24
 43.128.0.0/13
 43.146.0.0/17
-43.146.128.0/20
-43.146.144.0/21
+43.146.128.0/19
+43.146.160.0/20
+43.146.176.0/21
+43.146.184.0/23
 43.151.0.0/17
 43.152.0.0/13
 43.160.0.0/12
@@ -35,6 +37,8 @@
 119.29.29.0/24
 124.156.0.0/16
 129.226.0.0/16
+142.86.0.0/17
+142.86.128.0/18
 150.109.0.0/16
 152.32.166.0/24
 161.120.0.0/16
