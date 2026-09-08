@@ -47,6 +47,11 @@ jobs:
           print(f"upstream={len(up)} extra={len(extra)} merged={len(keep)}")
           PY
 
+          # Second output, same source: AutoProxy rules for the browser proxy
+          # extension. Generated here rather than in a separate job so the two
+          # consumers can never drift apart by a day.
+          python3 tools/gfwlist2autoproxy.py > /tmp/autoproxy.txt
+
           CNT=$(grep -cE '^[a-z0-9][a-z0-9.-]*$' /tmp/merged.txt)
           echo "count=${CNT}" >> "$GITHUB_OUTPUT"
 
@@ -69,14 +74,16 @@ jobs:
             cat /tmp/merged.txt
           } > gfwlist.txt
 
-          if git diff --quiet -- gfwlist.txt; then
+          cp /tmp/autoproxy.txt gfwlist-autoproxy.txt
+
+          if git diff --quiet -- gfwlist.txt gfwlist-autoproxy.txt; then
               echo "no change"
               echo "changed=0" >> "$GITHUB_OUTPUT"
               exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add gfwlist.txt
+          git add gfwlist.txt gfwlist-autoproxy.txt
           git commit -m "chore(gfwlist): sync — ${{ steps.convert.outputs.count }} domains"
           git push
           echo "changed=1" >> "$GITHUB_OUTPUT"
