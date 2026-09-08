@@ -1,0 +1,17 @@
+# Manually curated additions, merged on top of the upstream gfwlist.
+# Anything here survives the automatic sync — put domains the upstream
+# list does not carry (client/tooling sites, CDNs we depend on, …).
+# One domain per line; a parent domain already covers its sub-domains.
+chromium.org
+pages.dev
+puredns.org
+radiojar.com
+sagernet.org
+scache.vzw.com
+scache1.vzw.com
+scache2.vzw.com
+softether-download.com
+soylentnews.org
+ss7.vzw.com
+www.clashverge.dev
+yidio.com

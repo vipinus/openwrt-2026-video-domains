@@ -8,10 +8,14 @@ The firmware fetches `direct.txt` via weekly cron.
 
 - `direct.txt` — one domain per line; `#` for comments.
   Matches parent-domain and all subdomains via dnsmasq-full nftset.
-- `gfwlist.txt` — one domain per line; `#` for comments.
-  Domains that need a resolver outside the local one. Refreshed weekly
-  by the firmware; a fetch with fewer than 1000 valid entries is rejected
+- `gfwlist.txt` — one domain per line; `#` for comments. **Generated —
+  do not edit.** Synced daily from [gfwlist](https://github.com/gfwlist/gfwlist)
+  by `.github/workflows/gfwlist-sync.yml`, merged with `gfwlist-extra.txt`.
+  A parent domain already covers its sub-domains, so sub-domains whose parent
+  is present are dropped. Consumers reject a file with fewer than 1000 entries,
   so a truncated download cannot wipe a working list.
+- `gfwlist-extra.txt` — manually curated additions merged on top of upstream.
+  Edit this one, never `gfwlist.txt`.
 
 ## Contributing
 

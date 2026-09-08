@@ -1,0 +1,98 @@
+name: Sync gfwlist
+
+# Track https://github.com/gfwlist/gfwlist and refresh gfwlist.txt whenever the
+# upstream list changes. Upstream ships base64-encoded AutoProxy rules; we
+# convert them to a plain domain list the firmware can feed to dnsmasq.
+#
+# Upstream declares `Expires: 6h`, so a daily check is plenty.
+
+on:
+  schedule:
+    - cron: '40 3 * * *'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Convert upstream list
+        id: convert
+        run: |
+          set -euo pipefail
+          python3 tools/gfwlist2domains.py > /tmp/upstream.txt
+
+          # Merge the curated additions, then collapse again so a sub-domain
+          # whose parent arrived upstream does not linger.
+          python3 - <<'PY'
+          import re
+          up = {l.strip() for l in open("/tmp/upstream.txt") if l.strip()}
+          extra = {l.strip() for l in open("gfwlist-extra.txt")
+                   if l.strip() and not l.startswith("#")}
+          all_d = up | extra
+          keep = []
+          for d in sorted(all_d):
+              p = d.split(".")
+              if any(".".join(p[i:]) in all_d for i in range(1, len(p))):
+                  continue
+              keep.append(d)
+          open("/tmp/merged.txt", "w").write("\n".join(keep) + "\n")
+          print(f"upstream={len(up)} extra={len(extra)} merged={len(keep)}")
+          PY
+
+          CNT=$(grep -cE '^[a-z0-9][a-z0-9.-]*$' /tmp/merged.txt)
+          echo "count=${CNT}" >> "$GITHUB_OUTPUT"
+
+          # Gate: the firmware refuses anything under 1000 entries, so never
+          # publish a file that would be rejected on the far end anyway.
+          if [ "$CNT" -lt 1000 ]; then
+              echo "only ${CNT} domains — refusing to publish"
+              exit 1
+          fi
+
+      - name: Commit if changed
+        id: commit
+        run: |
+          set -euo pipefail
+          {
+            echo "# 被墙域名清单（gfwlist）。每行一个域名，# 开头与空行忽略。"
+            echo "# 自动生成：上游 https://github.com/gfwlist/gfwlist + gfwlist-extra.txt"
+            echo "# 由 .github/workflows/gfwlist-sync.yml 每日同步，别手改这个文件。"
+            echo "# 要加自己的域名请改 gfwlist-extra.txt。"
+            cat /tmp/merged.txt
+          } > gfwlist.txt
+
+          if git diff --quiet -- gfwlist.txt; then
+              echo "no change"
+              echo "changed=0" >> "$GITHUB_OUTPUT"
+              exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gfwlist.txt
+          git commit -m "chore(gfwlist): sync — ${{ steps.convert.outputs.count }} domains"
+          git push
+          echo "changed=1" >> "$GITHUB_OUTPUT"
+
+      - name: Discord notify
+        if: always()
+        run: |
+          CHG="${{ steps.commit.outputs.changed }}"
+          CNT="${{ steps.convert.outputs.count }}"
+          if [ "${{ job.status }}" = "success" ] && [ "$CHG" = "1" ]; then
+              MSG="✅ gfwlist synced: \`${CNT}\` domains"
+          elif [ "${{ job.status }}" = "success" ]; then
+              MSG="ℹ️ gfwlist sync: no change"
+          else
+              MSG="🚨 gfwlist sync FAILED (${{ github.run_id }})"
+          fi
+          curl -s -X POST -H 'Content-Type: application/json' \
+               -d "{\"content\": \"${MSG}\"}" \
+               "${{ secrets.DISCORD_WEBHOOK }}" || true
