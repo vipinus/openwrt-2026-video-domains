@@ -74,7 +74,32 @@ pgdt.gtimg.cn
 awdcdn.tc.qq.com
 tvs.qq.com
 mqqvideo.qq.com
-wlli.qwic.cn
+
+# --- tencent operator CDN (appended 2026-09-21) ---
+# Verified per CONTRIBUTING (dig + traffic capture) on a live router while
+# playing Tencent Video: ltsyd.qq.com answers with 8 China Mobile / Telecom
+# edge addresses (39.135-39.137.x) and serves the segments over plain HTTP:80
+# — 25.2 MB + 7.5 MB in a single session, by far the largest flow. It was
+# being tunnelled because no list entry covered it.
+ltsyd.qq.com
+#
+# Tested and deliberately NOT added — all of *.play.aiseet.atianqi.com is
+# API/control-plane, which CONTRIBUTING forbids (direct-routing them returns
+# geo-blocked manifests):
+#   h5vv.play.aiseet.atianqi.com        vv playback manifest interface
+#   appcfg-v.play.aiseet.atianqi.com    player config
+#   x-research.play.aiseet.atianqi.com  telemetry
+#   punch-p2p.play.aiseet.atianqi.com   P2P hole-punch (CNAME punch.p2p.qq.com);
+#     must keep a CN identity, and its peers are dynamic residential addresses
+#     (observed on ports 8000 / 30013 / 54863) that no domain list can cover.
+# Note: apdcdn.tc.qq.com and qqvideo.tc.qq.com themselves answer 0.0.0.1 —
+# they are suffix bases only; real hosts are apd-*.apdcdn.tc.qq.com etc.
+#
+# Removed in the same commit: wlli.qwic.cn — not a real domain. It is
+# puui.qpic.cn (already listed above) after BusyBox's `tr '[:upper:]'
+# '[:lower:]'` mangled it (u→l, p→w) and the mangled form got committed back
+# here. Same bug also produced awdcdn (from apdcdn), vwic, wgdt, sokl, awi,
+# grwc — fixed on the firmware side in openwrt-2026.
 
 # --- iqiyi media/CDN extra (appended 2026-04-19) ---
 # From cn-video-full.txt iqiyi section; excludes auth/API/control-plane:
