@@ -5,6 +5,7 @@
 chromium.org
 facebook.net
 meta.ai
+metaaivm.com
 pages.dev
 puredns.org
 radiojar.com
