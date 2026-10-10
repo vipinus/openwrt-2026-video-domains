@@ -3,6 +3,8 @@
 # list does not carry (client/tooling sites, CDNs we depend on, …).
 # One domain per line; a parent domain already covers its sub-domains.
 chromium.org
+facebook.net
+meta.ai
 pages.dev
 puredns.org
 radiojar.com

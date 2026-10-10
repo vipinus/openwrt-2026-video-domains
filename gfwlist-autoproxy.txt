@@ -4525,6 +4525,8 @@ iipdigital.usembassy.gov
 !---------------------EOF-----------------------
 ! ---- curated additions (gfwlist-extra.txt) ----
 ||chromium.org
+||facebook.net
+||meta.ai
 ||pages.dev
 ||puredns.org
 ||radiojar.com
