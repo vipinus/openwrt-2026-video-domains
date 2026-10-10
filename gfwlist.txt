@@ -794,7 +794,6 @@ communistcrimes.org
 communitychoicecu.com
 comparitech.com
 compileheart.com
-connect.facebook.net
 conoha.jp
 contests.twilio.com
 cool18.com
@@ -1134,6 +1133,7 @@ facebook.de
 facebook.design
 facebook.hu
 facebook.in
+facebook.net
 facebook.nl
 facebook.se
 facebookmail.com
@@ -2385,6 +2385,7 @@ meridian-trust.org
 meripet.com
 merit-times.com.tw
 messenger.com
+meta.ai
 meta.com
 metafilter.com
 metamask.io
