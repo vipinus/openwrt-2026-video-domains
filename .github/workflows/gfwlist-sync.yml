@@ -34,8 +34,23 @@ jobs:
           python3 - <<'PY'
           import re
           up = {l.strip() for l in open("/tmp/upstream.txt") if l.strip()}
-          extra = {l.strip() for l in open("gfwlist-extra.txt")
-                   if l.strip() and not l.startswith("#")}
+          lines = open("gfwlist-extra.txt").read().splitlines()
+          extra = {l.strip() for l in lines if l.strip() and not l.startswith("#")}
+
+          # 上游已经收了的，从我们的补充名单里清掉（站长 2026-10-10：「发现上游加入了我们的 list 就从我们的 list 里面清掉」）。
+          # 「收了」= 上游有这个域名本身，或有它的某个上级域名（上级域名已经盖住它）。
+          # 清掉不影响结果：下面合并出来的名单里它照样在，只是来源变成了上游。
+          def covered(d):
+              p = d.split(".")
+              return any(".".join(p[i:]) in up for i in range(len(p) - 1))
+          gone = sorted(d for d in extra if covered(d))
+          if gone:
+              extra -= set(gone)
+              keep_lines = [l for l in lines if l.startswith("#") or (l.strip() and l.strip() not in gone)]
+              open("gfwlist-extra.txt", "w").write("\n".join(keep_lines) + "\n")
+          open("/tmp/pruned.txt", "w").write(" ".join(gone))
+          print("pruned from extra:", gone or "none")
+
           all_d = up | extra
           keep = []
           for d in sorted(all_d):
@@ -76,15 +91,19 @@ jobs:
 
           cp /tmp/autoproxy.txt gfwlist-autoproxy.txt
 
-          if git diff --quiet -- gfwlist.txt gfwlist-autoproxy.txt; then
+          PRUNED=$(cat /tmp/pruned.txt 2>/dev/null || true)
+          echo "pruned=${PRUNED}" >> "$GITHUB_OUTPUT"
+          if git diff --quiet -- gfwlist.txt gfwlist-autoproxy.txt gfwlist-extra.txt; then
               echo "no change"
               echo "changed=0" >> "$GITHUB_OUTPUT"
               exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add gfwlist.txt gfwlist-autoproxy.txt
-          git commit -m "chore(gfwlist): sync — ${{ steps.convert.outputs.count }} domains"
+          git add gfwlist.txt gfwlist-autoproxy.txt gfwlist-extra.txt
+          MSG="chore(gfwlist): sync — ${{ steps.convert.outputs.count }} domains"
+          [ -n "$PRUNED" ] && MSG="$MSG; extra 清掉上游已收的: $PRUNED"
+          git commit -m "$MSG"
           git push
           echo "changed=1" >> "$GITHUB_OUTPUT"
 
@@ -102,6 +121,8 @@ jobs:
           SEV=info
           if [ "${{ job.status }}" = "success" ] && [ "$CHG" = "1" ]; then
               MSG="✅ gfwlist synced: ${CNT} domains"
+              PRUNED="${{ steps.commit.outputs.pruned }}"
+              [ -n "$PRUNED" ] && MSG="$MSG；上游已收录、已从补充名单清掉：$PRUNED"
           elif [ "${{ job.status }}" = "success" ]; then
               # 没有变化不通知（站长 2026-10-05：只在「有变化」和「失败」时才通知，天天一条「no change」会让人忽略真正的告警）
               echo "no change — 不发通知"; exit 0
