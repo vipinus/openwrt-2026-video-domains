@@ -57,11 +57,16 @@ ltsxmty.gtimg.com
 qqvideo.tc.qq.com
 qqvideo.gtimg.com
 #v.smtcdns.com
-vpic.video.qq.com
-vfiles.gtimg.cn
-puui.qpic.cn
 yoo.gtimg.com
-pgdt.gtimg.cn
+# 2026-10-09 摘掉四个：它们是海报图 / 静态资源 / 广告的域名，不是视频流，而且和腾讯视频网站本身落在同一批地址上
+# （实测 vpic.video.qq.com、vfiles.gtimg.cn、puui.qpic.cn 与 v.qq.com 都解析到 43.141.125.11，pgdt.gtimg.cn 在隔壁 .13）。
+# 这份表是按解析出的 IP 放行直连的，于是海外路由器回国时整个 v.qq.com 连同接口都被当成「直连」，
+# 腾讯看到的是海外地址：详情页跳 https://v.qq.com/error.html（404）、频道页的图片刷不出来（站长当天在加拿大的路由器上遇到）。
+# 这正是 README 里说的「不要加接口、登录、清单类域名」。图片走隧道多不了多少流量。
+#vpic.video.qq.com
+#vfiles.gtimg.cn
+#puui.qpic.cn
+#pgdt.gtimg.cn
 
 # --- tencent media/CDN extra (appended 2026-04-19) ---
 # Extracted from cn-video-full.txt Tencent section; excludes auth
