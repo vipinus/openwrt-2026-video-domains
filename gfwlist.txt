@@ -796,6 +796,7 @@ communitychoicecu.com
 comparitech.com
 compileheart.com
 conoha.jp
+console.typesafe.ai
 contests.twilio.com
 cool18.com
 coolaler.com
@@ -1351,6 +1352,7 @@ g.ai
 g.co
 g0v.social
 g6hentai.com
+ga.jspm.io
 gab.com
 gabocorp.com
 gagaoolala.com
