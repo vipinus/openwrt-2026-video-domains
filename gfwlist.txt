@@ -398,6 +398,7 @@ bfsh.hk
 bgm.tv
 bgme.me
 bgvpn.com
+bible.com
 biblesforamerica.org
 bibox.com
 biedian.me
@@ -4293,6 +4294,7 @@ youtubeeducation.com
 youtubegaming.com
 youtubekids.com
 youversion.com
+youversionapi.com
 youwin.com
 youxu.info
 yt.be
