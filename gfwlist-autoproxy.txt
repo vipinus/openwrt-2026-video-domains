@@ -4543,6 +4543,7 @@ iipdigital.usembassy.gov
 !################Whitelist End##################
 !---------------------EOF-----------------------
 ! ---- curated additions (gfwlist-extra.txt) ----
+||bible.com
 ||chromium.org
 ||facebook.net
 ||pages.dev
@@ -4557,3 +4558,4 @@ iipdigital.usembassy.gov
 ||ss7.vzw.com
 ||www.clashverge.dev
 ||yidio.com
+||youversionapi.com
