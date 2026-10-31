@@ -2,6 +2,7 @@
 # Anything here survives the automatic sync — put domains the upstream
 # list does not carry (client/tooling sites, CDNs we depend on, …).
 # One domain per line; a parent domain already covers its sub-domains.
+bible.com
 chromium.org
 facebook.net
 pages.dev
@@ -16,3 +17,4 @@ soylentnews.org
 ss7.vzw.com
 www.clashverge.dev
 yidio.com
+youversionapi.com
