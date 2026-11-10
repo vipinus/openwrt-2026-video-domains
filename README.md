@@ -20,8 +20,7 @@ The firmware bakes `direct.txt` and `force-cn-cidrs.txt` in at build time;
 
 ## Legacy files (no longer read by current firmware)
 
-`domains.txt` (old name of `direct.txt`), `dns.txt` (retired DNS upstream
-list), `supplement.txt`, `blacklist.txt` and `cn-video-full.txt` (inputs of
+`domains.txt` (old name of `direct.txt`), `supplement.txt`, `blacklist.txt` and `cn-video-full.txt` (inputs of
 an earlier list generator). Kept for history only; do not rely on them.
 
 ## Contributing to `direct.txt`
